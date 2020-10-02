@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表格</title>
+    <style>
+        thead th:not(:first-child) {
+            padding: 0 40px;
+        }
+
+        tr {
+            cursor: default;
+        }
+
+        th,
+        td {
+            height: 30px;
+            text-align: center;
+        }
+
+        .selected {
+            background: rgb(255, 0, 0);
+            color: #fff;
+        }
+
+        tbody tr:not(.selected):hover {
+            background: rgba(130, 75, 219, 0.719);
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+<table border="1" cellspacing='0'>
+    <thead>
+    <tr>
+        <th><input type="checkbox" name="" id="check"></th>
+        <th>名称</th>
+        <th>修改日期</th>
+        <th>类型</th>
+        <th>大小</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+
+
+</table>
+<button onclick="change()">123</button>
+</body>
+<script>
+    // 创建一个数组
+    var arr = [{
+        title: '初级阶段',
+        data: '2019-5-26',
+        type: '文件夹',
+        size: '20kb'
+    },
+        {
+            title: '中级阶段',
+            data: '2019-5-24',
+            type: '文件夹',
+            size: '345kb'
+        },
+        {
+            title: '高级阶段',
+            data: '2019-5-23',
+            type: '文件夹',
+            size: '222kb'
+        },
+        {
+            title: '码农阶段',
+            data: '2019-5-22',
+            type: '文件夹',
+            size: '55kb'
+        },
+        {
+            title: '码神阶段',
+            data: '2019-5-21',
+            type: '文件夹',
+            size: '77kb'
+        }
+    ];
+    var tbody = document.querySelector('tbody');
+    var str = '';
+    // 动态打印表格
+    for (let i = 0; i < arr.length; i++) {
+        // 模板字符串
+        str += `<tr>
+            <td><input type="checkbox" name=""></td>
+            <td>${arr[i].title}</td>
+            <td>${arr[i].data}</td>
+            <td>${arr[i].type}</td>
+            <td>${arr[i].size}</td>
+        </tr>`
+    }
+    tbody.innerHTML = str;
+    // 获取tbody下的input
+    var ipts = document.querySelectorAll('tbody input');
+    // 获取tbody下的tr
+    var trs = document.querySelectorAll('tbody tr');
+    var iptsArray = Array.from(ipts);   // 把伪数组转换为真数组
+    // 点击全选选择所有的复选框
+    check.onclick = function () {
+        if (this.checked) {
+            for (let i = 0; i < ipts.length; i++) {
+                ipts[i].checked = true;    //每个复选框设置为勾选状态
+                trs[i].className = 'selected';    //增加class
+            }
+        } else {
+            for (i = 0; i < ipts.length; i++) {
+                ipts[i].checked = false;    //每个复选框设置为不勾选状态
+                trs[i].className = '';    //删除class
+            }
+        }
+    }
+    // 单独的选中效果
+    for (let i = 0; i < ipts.length; i++) {
+        ipts[i].onchange = function () {
+            if (ipts[i].checked) {
+                ipts[i].checked = true;
+                trs[i].className = 'selected';
+            } else {
+                ipts[i].checked = false;
+                trs[i].className = '';
+            }
+            // 全部选中
+            var res1 = iptsArray.every(function (ele) {
+                return ele.checked;
+            })
+            if (res1) {
+                check.checked = true;
+            }
+            // 全部不选中
+            var res2 = iptsArray.every(function (ele) {
+                return !(ele.checked);
+            })
+            if (res2) {
+                check.checked = false;
+            }
+            // 半选状态
+            if(!res1&&!res2) {
+                check.indeterminate = true;
+            }else {
+                check.indeterminate = false;
+            }
+        }
+    }
+
+    function change(){
+        arr[1].type="wasd";
+    }
+</script>
+
+</html>
