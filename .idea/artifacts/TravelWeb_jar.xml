@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="TravelWeb:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TravelWeb_jar</output-path>
+    <root id="archive" name="TravelWeb.jar">
+      <element id="module-output" name="TravelWeb" />
+      <element id="extracted-dir" path="D:/javasource/apache-tomcat-8.0.38/lib/servlet-api.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

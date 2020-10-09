@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>土豆书城</title>
+
+    <style>
+        .login{
+            width: 2500px;
+            height: 600px;
+            position: absolute;
+            left: -300px;
+            top: 150px;
+        }
+
+        .login-box{
+            position: absolute;
+            left: 1400px;
+            top: 100px;
+            width: 350px;
+            height: 350px;
+            background-color: #E9E9F2;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
+        p{
+            color: black;
+            font-size: 25px;
+            margin-left: 30px;
+        }
+
+
+
+        .logo{
+            width: 180px;
+            height: 90px;
+            margin-left: 400px;
+            margin-top: 40px;
+        }
+
+        .input-username{
+            margin-left: 30px;
+            margin-top: 50px;
+        }
+
+        .input-password{
+            margin-left: 30px;
+            margin-top: 30px;
+        }
+
+        .input-username input{
+            width: 220px;
+            height: 32px;
+            position: absolute;
+            top: 107px;
+            left: 70px;
+            border-radius: 9px;
+            padding-left: 16px;
+        }
+
+        .input-password input{
+            width: 220px;
+            height: 32px;
+            position: absolute;
+            top: 169px;
+            left: 70px;
+            border-radius: 9px;
+            padding-left: 16px;
+        }
+
+        button{
+            margin-top: 30px;
+            margin-left: 35px;
+            width: 280px;
+            height: 40px;
+            font-size: 20px;
+            background-color: #F52B00;
+            color: white;
+            border: 0px;
+
+        }
+
+        .other{
+            margin-left: 160px;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="logo">
+
+
+    <a href="index.html"><img src="img/logo.png" href="index.html" style="width:180px;height: 90px"></a>
+</div>
+
+<div class="login" style="background-image:url(./img/login-background.png)">
+    <div class="login-box">
+        <p>用户登录</p>
+        <div class="input-username">
+            <img src="img/user.png"><input id="username" type="text" placeholder="会员名">
+        </div>
+        <div class="input-password">
+            <img src="img/password.png"><input id="password" type="password" placeholder="请输入登陆密码"><br/>
+        </div>
+
+        <button id="btn_login">登录</button><br/>
+
+        <div class="other">
+            <a>忘记密码</a>
+            <a href="regist.html" style="margin-left: 25px">免费注册</a>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
